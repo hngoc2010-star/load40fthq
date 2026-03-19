@@ -1,0 +1,270 @@
+:root {
+  --bg1: #f8fafc;
+  --bg2: #e2e8f0;
+  --card: rgba(255, 255, 255, 0.90);
+  --line: rgba(148, 163, 184, 0.24);
+  --text: #0f172a;
+  --muted: #64748b;
+  --good: #166534;
+  --warn: #b45309;
+  --bad: #b91c1c;
+  --shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+  --radius: 18px;
+  --vh: 1vh;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+  overflow: hidden;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  height: calc(var(--vh, 1vh) * 100);
+  padding:
+    max(10px, env(safe-area-inset-top))
+    10px
+    max(10px, env(safe-area-inset-bottom))
+    10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header {
+  flex: 0 0 auto;
+  padding: 4px 4px 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.header p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.screen {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 8px;
+}
+
+.card {
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.metrics {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.metric {
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  min-height: 68px;
+}
+
+.metric span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.metric strong {
+  display: block;
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.metric.plan {
+  grid-column: 1 / -1;
+  min-height: 74px;
+}
+
+.metric.plan small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.form-card {
+  padding: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field span {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.field input,
+.switch-wrap input,
+.switch-wrap select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px 10px;
+  outline: none;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.option-row {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.switch-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.switch-wrap span {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.hint {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.result-card {
+  padding: 8px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.table-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.84);
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f8fafc;
+}
+
+th,
+td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  font-size: 12px;
+}
+
+th {
+  font-weight: 800;
+  color: #334155;
+}
+
+td {
+  color: var(--text);
+}
+
+.empty {
+  color: var(--muted);
+  padding: 20px 8px;
+}
+
+.good {
+  color: var(--good);
+  font-weight: 800;
+}
+
+.warn {
+  color: var(--warn);
+  font-weight: 800;
+}
+
+.bad {
+  color: var(--bad);
+  font-weight: 800;
+}

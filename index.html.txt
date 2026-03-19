@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+  />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Plywood Load" />
+
+  <title>Plywood Load</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-text">
+        <h1>Plywood Load</h1>
+        <p>40ftHQ • Auto calculate • 48–54 cbm</p>
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="card metrics">
+        <div class="metric">
+          <span>CBM/PCS</span>
+          <strong id="cbmPerPcs">-</strong>
+        </div>
+
+        <div class="metric">
+          <span>PCS/CBM</span>
+          <strong id="pcsPerCbm">-</strong>
+        </div>
+
+        <div class="metric plan">
+          <span>Best Plan</span>
+          <strong id="bestPlan">-</strong>
+          <small id="bestInfo">CBM: - | Tấn: - | PCS: -</small>
+        </div>
+      </section>
+
+      <section class="card form-card">
+        <div class="form-grid">
+          <label class="field">
+            <span>Thickness</span>
+            <input id="thickness" type="number" inputmode="decimal" step="0.1" placeholder="mm" />
+          </label>
+
+          <label class="field">
+            <span>Width</span>
+            <input id="width" type="number" inputmode="decimal" step="1" value="1220" />
+          </label>
+
+          <label class="field">
+            <span>Length</span>
+            <input id="length" type="number" inputmode="decimal" step="1" value="2440" />
+          </label>
+
+          <label class="field">
+            <span>kg/cbm</span>
+            <input id="density" type="number" inputmode="decimal" step="1" value="620" />
+          </label>
+
+          <label class="field">
+            <span>Pcs min</span>
+            <input id="pcsMin" type="number" inputmode="numeric" step="1" value="30" />
+          </label>
+
+          <label class="field">
+            <span>Pcs max</span>
+            <input id="pcsMax" type="number" inputmode="numeric" step="1" value="90" />
+          </label>
+        </div>
+
+        <div class="option-row">
+          <label class="switch-wrap">
+            <span>Option kiện</span>
+            <select id="bundleMode">
+              <option value="auto">Auto số kiện</option>
+              <option value="manual">Chọn số kiện</option>
+            </select>
+          </label>
+
+          <label class="switch-wrap" id="manualBundleWrap">
+            <span>Số kiện</span>
+            <input id="manualBundles" type="number" inputmode="numeric" step="1" value="40" />
+          </label>
+        </div>
+
+        <div class="hint">
+          Mục tiêu: 48–54 cbm • không quá 32.5 tấn
+        </div>
+      </section>
+
+      <section class="card result-card">
+        <div class="result-head">
+          <span>Top options</span>
+          <span id="resultCount">0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Pcs/kiện</th>
+                <th>Kiện</th>
+                <th>Total pcs</th>
+                <th>CBM</th>
+                <th>Tấn</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody id="resultTable">
+              <tr>
+                <td colspan="6" class="empty">Nhập số liệu để tính</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
